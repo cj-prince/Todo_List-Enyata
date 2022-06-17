@@ -9,6 +9,13 @@
     e.preventDefault(); // stoping page refresh
 
     const list = input.value;
+
+    //This is to stop empty tasks from being added
+    if(!list){
+        alert("Please include a task. :)")
+        return;
+    }
+
     const display = document.createElement('div'); //creating a div element
     display.classList.add('task'); //creating a classname for the div
 
@@ -17,7 +24,7 @@
     // content.innerText = list;  // displays the form input value in div
 
     display.appendChild(content);
-    
+
     const list_dis = document.createElement('input'); // creating and selecting input display
     list_dis.classList.add('text');
     list_dis.type = 'text';
@@ -25,7 +32,7 @@
     list_dis.setAttribute('readonly', 'readonly');
 
     content.appendChild(list_dis);
-
+  
     const list_actions = document.createElement('div');
     list_actions.classList.add('buttons');
 
