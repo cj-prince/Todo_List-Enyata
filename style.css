@@ -87,6 +87,8 @@ body{
 
 .task{
   display: flex;
+  background-color: teal;
+  margin-bottom: 10px;
 }
 .content{
   flex: 1 1 0%;
