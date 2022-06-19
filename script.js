@@ -6,15 +6,30 @@ window.addEventListener('load', () => {
   const timeInput = document.querySelector('#timeInput');
   const sortItems = document.querySelector('#sortBtn');
 
-
 	const username = localStorage.getItem('username') || '';
-
-  var dateValue, timeValue;
 	nameInput.value = username;
+
+  var dateValue, timeValue, todaysDate;
 
 	nameInput.addEventListener('change', (e) => {
 		localStorage.setItem('username', e.target.value);
 	})
+
+  dateInput.addEventListener('click', ()=>{
+    let todayDate = new Date()
+    if(todayDate.getMonth >9){
+      todaysDate = `${todayDate.getFullYear()}-${todayDate.getMonth()+1}-${todayDate.getUTCDate()}`;
+    }else{
+      todaysDate = `${todayDate.getFullYear()}-0${todayDate.getMonth()+1}-${todayDate.getUTCDate()}`;
+    }
+    document.getElementById("dateInput").min=todaysDate;
+  })
+
+  timeInput.addEventListener('click', ()=>{
+    let todayDate = new Date()
+    todaysTime = `${todayDate.getHours()}:${todayDate.getMinutes()}`;
+    document.getElementById("timeInput").min=todaysTime;
+  })
 
 	newTodoForm.addEventListener('submit', e => {
 		e.preventDefault();
