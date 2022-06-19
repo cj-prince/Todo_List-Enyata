@@ -1,49 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Omega To-Do List</title>
+  <!-- CSS Import -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- End of CSS Import -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap" rel="stylesheet">
-  <title>Team Omega To-Do List</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap"
+    rel="stylesheet">
+  <!-- End of Fonts -->
 </head>
-<body class="main">
-  <div class="header">
-    <h1> enyata (Group 5 - Omega) </h1>
-    <h2> TO DO LIST</h2>
-  </div> 
-  <form id="newtask">
-      <input type="text" id="input"  placeholder="Things to do..."/>
-      <input type ="submit" id="btn" value = "Attach"/>
-  </form>
-  <div class="display">
-    <h4>Todos</h4>
-    <div id="displayed">
-      <!-- <div class = 'task'>
-          <div class="content">
+
+<body>
+  <!-- App Wrapper -->
+  <main class="app">
+    <section class="header">
+      <h2> TO DO LIST</h2>
+      <h1> enyata (Group 5 - Omega) </h1>
+    </section>
+    <!-- Greeting -->
+    <section class="greeting">
+      <h2 class="title">
+        Enter Name, <input type="text" id="name" placeholder="Dave" />
+      </h2>
+    </section>
+    <!-- End of Greeting -->
+
+    <!-- New Todo -->
+    <section class="create-todo">
+      <h3>CREATE YOUR TODO</h3>
+      <form id="new-todo-form">
+        <h4>Time to get Serious?</h4>
+        <input type="text" placeholder="enter todos..." name="content" id="content" />
+        <h4>Select Date and Time</h4>
+        <div class="dataSelect">
+          <span>Date:</span>
+          <input type="date" id="dateInput">
+          <span>Time:</span>
+          <input type="time" id="timeInput">
+          <span></span>
+        </div>
+
+        <h4>Pick a category</h4>
+        <div class="options">
+          <label>
+            <input type="radio" name="category" id="category1" value="business" />
+            <span class="bubble business"></span>
+            <div>Business</div>
+          </label>
+          <label>
+            <input type="radio" name="category" id="category2" value="personal" />
+            <span class="bubble personal"></span>
+            <div>Personal</div>
+          </label>
+        </div>
+
+        <input type="submit" value="Add todo" />
+      </form>
+    </section>
+    <!-- End of New Todo -->
+
+    <!-- Todo List -->
+    <section class="todo-list">
+      <div class="sort">
+        <h3>TODOs</h3>
+        <button id="sortBtn">Sort</button>
+      </div>
+
+      <div class="list" id="todo-list">
+        <!-- <div class='todo-item'>
+          <label>
+            <input type="checkbox">
+            <span class="bubble business"></span>
+          </label>
+        
+          <div class="todo-content">
             <input type='text' class="text" value="A new task" readonly />
           </div>
-        -->
         
-        <!-- <div class="buttons">
-          <button class="edit">Edit</button>
-          <button class="delete">Delete</button>
-        </div> -->
-      <!-- </div> -->
+          <div class="actions">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </div>
+          <div class='dataTime'>
+            <span class='datadisplay'>Date</span>
+            <span class='timedisplay'>Time</span>
+          </div>
+        </div>
+        </div>
+        <div class='task-item'>
+          <label>
+            <input type="checkbox">
+            <span class="bubble business"></span>
+          </label>
+        
+          <div class="todo-content">
+            <input type='text' class="text" value="A new task" readonly />
+          </div> -->
+        <!-- <div class="actions">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </div> -->
+        <!-- <div>
+            <span>Date</span><span>Time</span>
+          </div> -->
       </div>
-  </div>
-  
-  <footer>
-    <h6>Team Members:</h6>
-    <p>Davids Chijioke</p>
-    <p>William Imoukhuede</p>
-    <p>Joshua Oladele</p>
-    <p>Omowunmi Okubanjo</p>
-  </footer>
 
+    </section>
+    <!-- End of Todo List -->
+    <footer>
+      <h6>Team Members:</h6>
+      <p>Davids Chijioke</p>
+      <p>William Imoukhuede</p>
+      <p>Joshua Oladele</p>
+      <p>Omowunmi Okubanjo</p>
+    </footer>
+
+  </main>
+  <!-- End of App Wrapper -->
+
+  <!-- JS Import -->
   <script src="script.js"></script>
+  <!-- End of JS Import -->
 </body>
+
 </html>
