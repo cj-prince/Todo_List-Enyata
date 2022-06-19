@@ -9,6 +9,7 @@ window.addEventListener('load', () => {
 
 	const username = localStorage.getItem('username') || '';
 
+  var dateValue, timeValue;
 	nameInput.value = username;
 
 	nameInput.addEventListener('change', (e) => {
@@ -18,10 +19,33 @@ window.addEventListener('load', () => {
 	newTodoForm.addEventListener('submit', e => {
 		e.preventDefault();
 
-    let dateValue = dateInput.value;
-    dateInput.value="";
-    let timeValue = timeInput.value;
-    timeInput.value="";
+    if(!e.target.elements.content.value){
+      alert("Please add a task.")
+      return;
+    }
+
+    if(!e.target.elements.category.value){
+      alert("Please add a category.")
+      return;
+    }
+
+    if(!dateInput.value){
+      let currentDate = new Date();
+      dateValue = `${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDay()}`
+      console.log(dateValue);
+    }else{
+      dateValue = dateInput.value;
+      dateInput.value="";
+    }
+
+    if(!timeInput.value){
+      let currentDate = new Date()
+      timeValue = `${currentDate.getHours()}:${currentDate.getMinutes()}`
+      console.log(timeValue);
+    }else{
+      timeValue = timeInput.value;
+      timeInput.value="";
+    }
 
 		const todo = {
 			content: e.target.elements.content.value,
