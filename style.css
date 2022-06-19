@@ -106,10 +106,6 @@ h4 {
 
 .create-todo .options label {
   display: flex;
-<<<<<<< HEAD
-  background-color: teal;
-  margin-bottom: 10px;
-=======
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -118,7 +114,6 @@ h4 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   cursor: pointer;
->>>>>>> edit
 }
 
 input[type="radio"],
