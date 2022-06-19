@@ -59,7 +59,7 @@ function DisplayTodos () {
 		const span = document.createElement('span');
 		const content = document.createElement('div');
 		const actions = document.createElement('div');
-		const edit = document.createElement('button');
+		const editButton = document.createElement('button');
 		const deleteButton = document.createElement('button');
 		const dateTime = document.createElement('div');
 		const dateDisplay = document.createElement('span');
@@ -75,21 +75,21 @@ function DisplayTodos () {
 		}
 		content.classList.add('todo-content');
 		actions.classList.add('actions');
-		edit.classList.add('edit');
+		editButton.classList.add('edit');
 		deleteButton.classList.add('delete');
 		dateTime.classList.add('dataTime');
 		dateDisplay.classList.add('datadisplay');
 		timeDisplay.classList.add('timedisplay');
 
 		content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
-		edit.innerHTML = 'Edit';
+		editButton.innerHTML = 'Edit';
 		deleteButton.innerHTML = 'Delete';
     dateDisplay.innerHTML = todo.date;
     timeDisplay.innerHTML = todo.time;
 
 		label.appendChild(input);
 		label.appendChild(span);
-		actions.appendChild(edit);
+		actions.appendChild(editButton);
 		actions.appendChild(deleteButton);
     dateTime.appendChild(dateDisplay)
     dateTime.appendChild(timeDisplay)
@@ -119,7 +119,7 @@ function DisplayTodos () {
 
 		})
 
-		edit.addEventListener('click', (e) => {
+		editButton.addEventListener('click', (e) => {
 			const input = content.querySelector('input');
 			input.removeAttribute('readonly');
 			input.focus();
