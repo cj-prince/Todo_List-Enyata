@@ -93,6 +93,9 @@ function DisplayTodos () {
 		const todoItem = document.createElement('div');
 		todoItem.classList.add('todo-item');
 
+    const inputFeild = document.createElement('div')
+    inputFeild.classList.add('input-field')
+
 		const label = document.createElement('label');
 		const input = document.createElement('input');
 		const span = document.createElement('span');
@@ -126,6 +129,7 @@ function DisplayTodos () {
     dateDisplay.innerHTML = todo.date;
     timeDisplay.innerHTML = todo.time;
 
+    
 		label.appendChild(input);
 		label.appendChild(span);
 		actions.appendChild(editButton);
@@ -133,9 +137,11 @@ function DisplayTodos () {
     dateTime.appendChild(dateDisplay)
     dateTime.appendChild(timeDisplay)
     // actions.appendChild(dateTime)
-		todoItem.appendChild(label);
-		todoItem.appendChild(content);
-		todoItem.appendChild(actions);
+
+		inputFeild.appendChild(label);
+		inputFeild.appendChild(content);
+		inputFeild.appendChild(actions);
+		todoItem.appendChild(inputFeild);
 		todoItem.appendChild(dateTime);
 
 		todoList.appendChild(todoItem);
