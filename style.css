@@ -191,6 +191,9 @@ input:checked~.bubble::after {
 .todo-list .list {
   margin: 1rem 0;
 }
+.done-list .list {
+  margin: 1rem 0;
+}
 
 .sort {
   display: flex;
@@ -204,6 +207,14 @@ input:checked~.bubble::after {
 }
 
 .todo-list .todo-item {
+  background-color: #FFF;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.done-list .todo-item {
   background-color: #FFF;
   padding: 1rem;
   border-radius: 0.5rem;
