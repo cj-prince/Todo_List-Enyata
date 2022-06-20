@@ -20,12 +20,11 @@ button {
 /* End of Resets */
 
 body {
-  background: #EEE;
+  background:rgba(97, 94, 94, 0.973);
   color: #313154;
 }
 
 section {
-  margin-top: 2rem;
   margin-bottom: 2rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -41,6 +40,11 @@ h3 {
 .header {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  background-color:cornflowerblue;
+  color:white;
+  border-radius: 0.5rem;
   margin-bottom: 10px;
 }
 
@@ -61,17 +65,20 @@ h4 {
 
 .greeting .title {
   display: flex;
+  
+  
 }
 
 .greeting .title input {
   margin-left: 0.5rem;
   flex: 1 1 0%;
   min-width: 0;
+  
 }
 
 .greeting .title,
 .greeting .title input {
-  color: #313154;
+  color:aqua;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -81,20 +88,28 @@ h4 {
   width: 100%;
   font-size: 1.125rem;
   padding: 1rem 1.5rem;
-  color: #313154;
-  background-color: #FFF;
+  color: black;
+  background-color:white;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
 }
+.create-todo h3
+{
+  color:White;
+}
+.create-todo h4
+{
+  color:chartreuse;
+}
 
 .create-todo .dataSelect {
-  color: gray;
+  color: whitesmoke;
   margin-bottom: 10px;
 }
 
 .create-todo .dataSelect input {
-  color: gray;
+  color:aqua;
 }
 
 .create-todo .options {
@@ -150,7 +165,7 @@ input[type="checkbox"] {
 }
 
 .bubble.personal::after {
-  background-color: #EA40A4;
+  background-color: blue;
   box-shadow: 0px 0px 4px rgba(234, 64, 164, 0.75);
 }
 
@@ -159,7 +174,20 @@ input:checked~.bubble::after {
   height: 10px;
   opacity: 1;
 }
-
+.Bus {
+  background: #EEE;
+  color:#EA40A4;
+}
+.per {
+  background: #EEE;
+  color:aquamarine;
+}
+.to {
+  color:chartreuse;
+}
+.so {
+  color:chartreuse;
+}
 .create-todo .options label div {
   color: #313154;
   font-size: 1.125rem;
@@ -174,7 +202,7 @@ input:checked~.bubble::after {
   color: #FFF;
   font-weight: 700;
   text-transform: uppercase;
-  background-color: #EA40A4;
+  background-color: dodgerblue;
   box-shadow: 0px 0px 4px rgba(234, 64, 164, 0.75);
   border-radius: 0.5rem;
   cursor: pointer;
@@ -201,7 +229,7 @@ input:checked~.bubble::after {
 .todo-list .todo-item {
   display: flex;
   align-items: center;
-  background-color: #FFF;
+  background-color:whitesmoke;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -243,11 +271,11 @@ input:checked~.bubble::after {
 
 .todo-item .actions .edit {
   margin-right: 0.5rem;
-  background-color: #EA40A4;
+  background-color: darkslateblue;
 }
 
 .todo-item .actions .delete {
-  background-color: #ff5b57;
+  background-color: #3a82ee;
 }
 
 .todo-item.done .todo-content input {
@@ -258,8 +286,9 @@ input:checked~.bubble::after {
 footer {
   bottom: 0;
   display: flex;
-  background-color: #fff;
-  color: black;
+  background: aquamarine;
+  background-color:#3a82ee;
+  color: white;
   width: 100%;
   padding: 20px;
   justify-content: space-evenly;
