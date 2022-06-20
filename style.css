@@ -184,7 +184,10 @@ input:checked~.bubble::after {
 .create-todo input[type="submit"]:hover {
   opacity: 0.75;
 }
-
+.allList{
+  display: grid;
+  grid-template-columns: auto auto;
+}
 .todo-list .list {
   margin: 1rem 0;
 }
