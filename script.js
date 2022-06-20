@@ -162,7 +162,7 @@ function DisplayTodos () {
 		todoList.appendChild(todoItem);
 
 		if (todo.done) {
-			todoItem.classList.add('done');
+			inputFeild.classList.add('done');
 		}
 		
 		input.addEventListener('change', (e) => {
