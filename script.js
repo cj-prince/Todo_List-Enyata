@@ -63,7 +63,6 @@ window.addEventListener('load', () => {
     if(!timeInput.value){
       currentDate = new Date()
       timeValue = `${currentDate.getHours()}:${currentDate.getMinutes()}`
-      console.log(timeValue);
     }else{
       timeValue = timeInput.value;
       timeInput.value="";
@@ -206,103 +205,97 @@ function completedTodos (selected) {
 	const doneList = document.querySelector('#done-list');
 	doneList.innerHTML = "";
 
-  // console.log('Undone',todos)
-  // console.log('Done1', todone)  
-  // console.log('Done2', todone)
-
-  // // todone.push(selected);
-  // todone.forEach(selected => {
-  //   if (selected !== null) {
-  //     todone.push(selected);
-  //   }
-  // });
-  // console.log('Done3', todone)
-
   todone.push(selected);
   todos = todos.filter(t => t != selected);
   localStorage.setItem('todos', JSON.stringify(todos));
   localStorage.setItem('todone', JSON.stringify(todone));
 
+  
 	todone.forEach(selected => {
-		const doneItem = document.createElement('div');
-    const inputField = document.createElement('div')
-		const label = document.createElement('label');
-		const input = document.createElement('input');
-		const span = document.createElement('span');
-		const content = document.createElement('div');
-		const actions = document.createElement('div');
-		const deleteButton = document.createElement('button');
-		const dateTime = document.createElement('div');
-		const dateDisplay = document.createElement('span');
-		const timeDisplay = document.createElement('span');
-
-		input.type = 'checkbox';
-		input.checked = true;
-		span.classList.add('bubble');
-    console.log('ch',selected);
-		if (selected.category == 'personal') {
-			span.classList.add('personal');
-		} else {
-			span.classList.add('business');
-		}
-
-    doneItem.classList.add('todo-item');
-    inputField.classList.add('input-field')
-		content.classList.add('todo-content');
-		actions.classList.add('actions');
-		deleteButton.classList.add('delete');
-		dateTime.classList.add('dataTime');
-		dateDisplay.classList.add('datadisplay');
-		timeDisplay.classList.add('timedisplay');
-
-		content.innerHTML = `<input type="text" value="${selected.content}" readonly>`;
-		deleteButton.innerHTML = 'Delete';
-    dateDisplay.innerHTML = selected.date;
-    timeDisplay.innerHTML = selected.time;
-
-    
-		label.appendChild(input);
-		label.appendChild(span);
-		actions.appendChild(deleteButton);
-    dateTime.appendChild(dateDisplay)
-    dateTime.appendChild(timeDisplay)
-    // actions.appendChild(dateTime)
-
-		inputField.appendChild(label);
-		inputField.appendChild(content);
-		inputField.appendChild(actions);
-		doneItem.appendChild(inputField);
-		doneItem.appendChild(dateTime);
-
-		doneList.appendChild(doneItem);
-
-		if (selected.done) {
-			inputField.classList.add('done');
-      doneItem.classList.add('done');
-		}
-		
-		input.addEventListener('change', (e) => {
-			selected.done = e.target.checked;
-			localStorage.setItem('todone', JSON.stringify(todone));
-
-			if (selected.done) {
-				doneItem.classList.add('done');
-        completedTodos()
-			} else {
-          todos.push(selected);
-          todone = todone.filter(t => t != selected);
-          localStorage.setItem('todos', JSON.stringify(todos));
-          localStorage.setItem('todone', JSON.stringify(todone));
-          DisplayTodos()
+    if(selected == null){
+      todone = todone.filter((x) => {
+        return x !== selected
+      });
+    }else{
+      const doneItem = document.createElement('div');
+      const inputField = document.createElement('div')
+      const label = document.createElement('label');
+      const input = document.createElement('input');
+      const span = document.createElement('span');
+      const content = document.createElement('div');
+      const actions = document.createElement('div');
+      const deleteButton = document.createElement('button');
+      const dateTime = document.createElement('div');
+      const dateDisplay = document.createElement('span');
+      const timeDisplay = document.createElement('span');
+  
+      input.type = 'checkbox';
+      input.checked = true;
+      span.classList.add('bubble');
+      if (selected.category == 'personal') {
+        span.classList.add('personal');
+      } else {
+        span.classList.add('business');
+      }
+  
+      doneItem.classList.add('todo-item');
+      inputField.classList.add('input-field')
+      content.classList.add('todo-content');
+      actions.classList.add('actions');
+      deleteButton.classList.add('delete');
+      dateTime.classList.add('dataTime');
+      dateDisplay.classList.add('datadisplay');
+      timeDisplay.classList.add('timedisplay');
+  
+      content.innerHTML = `<input type="text" value="${selected.content}" readonly>`;
+      deleteButton.innerHTML = 'Delete';
+      dateDisplay.innerHTML = selected.date;
+      timeDisplay.innerHTML = selected.time;
+  
+      
+      label.appendChild(input);
+      label.appendChild(span);
+      actions.appendChild(deleteButton);
+      dateTime.appendChild(dateDisplay)
+      dateTime.appendChild(timeDisplay)
+      // actions.appendChild(dateTime)
+  
+      inputField.appendChild(label);
+      inputField.appendChild(content);
+      inputField.appendChild(actions);
+      doneItem.appendChild(inputField);
+      doneItem.appendChild(dateTime);
+  
+      doneList.appendChild(doneItem);
+  
+      if (selected.done) {
+        inputField.classList.add('done');
+        doneItem.classList.add('done');
+      }
+      
+      input.addEventListener('change', (e) => {
+        selected.done = e.target.checked;
+        // localStorage.setItem('todone', JSON.stringify(todone));
+  
+        if (selected.done) {
+          doneItem.classList.add('done');
           completedTodos()
-			}
-		})
-
-		deleteButton.addEventListener('click', (e) => {
-			todone = todone.filter(t => t != selected);
-			localStorage.setItem('todone', JSON.stringify(todone));
-			completedTodos()
-      DisplayTodos()
-		})
+        } else {
+            todos.push(selected);
+            todone = todone.filter(t => t != selected);
+            localStorage.setItem('todos', JSON.stringify(todos));
+            localStorage.setItem('todone', JSON.stringify(todone));
+            DisplayTodos()
+            completedTodos()
+        }
+      })
+  
+      deleteButton.addEventListener('click', (e) => {
+        todone = todone.filter(t => t != selected);
+        localStorage.setItem('todone', JSON.stringify(todone));
+        completedTodos()
+        DisplayTodos()
+      })
+    }
 	})
 }
