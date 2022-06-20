@@ -20,7 +20,7 @@ button {
 /* End of Resets */
 
 body {
-  background: #EEE;
+  background: rgb(241, 135, 135);
   color: #313154;
 }
 
@@ -133,8 +133,8 @@ input[type="checkbox"] {
 }
 
 .bubble.personal {
-  border-color: #EA40A4;
-  box-shadow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+  border-color: #f27a09;
+  box-shadow: 0px 0px 4px rgba(227, 107, 10, 0.75);
 }
 
 .bubble::after {
@@ -150,8 +150,8 @@ input[type="checkbox"] {
 }
 
 .bubble.personal::after {
-  background-color: #EA40A4;
-  box-shadow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+  background-color: #40eaba;
+  box-shadow: 0px 0px 4px rgba(186, 231, 146, 0.75);
 }
 
 input:checked~.bubble::after {
@@ -174,8 +174,8 @@ input:checked~.bubble::after {
   color: #FFF;
   font-weight: 700;
   text-transform: uppercase;
-  background-color: #EA40A4;
-  box-shadow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+  background-color: #404bea;
+  box-shadow: 0px 0px 4px rgba(155, 213, 249, 0.75);
   border-radius: 0.5rem;
   cursor: pointer;
   transition: 0.2s ease-out;
@@ -199,8 +199,6 @@ input:checked~.bubble::after {
 }
 
 .todo-list .todo-item {
-  display: flex;
-  align-items: center;
   background-color: #FFF;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -208,27 +206,31 @@ input:checked~.bubble::after {
   margin-bottom: 1rem;
 }
 
-.todo-item label {
+.todo-item .input-field{
+  display: flex;
+  align-items: center;
+} 
+.input-field label {
   display: block;
   margin-right: 1rem;
   cursor: pointer;
 }
 
-.todo-item .todo-content {
+.input-field .todo-content {
   flex: 1 1 0%;
 }
 
-.todo-item .todo-content input {
+.input-field .todo-content input {
   color: #313154;
   font-size: 1.125rem;
 }
 
-.todo-item .actions {
+.input-field .actions {
   display: flex;
   align-items: center;
 }
 
-.todo-item .actions button {
+.input-field .actions button {
   display: block;
   padding: 0.5rem;
   border-radius: 0.25rem;
@@ -237,28 +239,34 @@ input:checked~.bubble::after {
   transition: 0.2s ease-in-out;
 }
 
-.todo-item .actions button:hover {
+.input-field .actions button:hover {
   opacity: 0.75;
 }
 
-.todo-item .actions .edit {
+.input-field .actions .edit {
   margin-right: 0.5rem;
-  background-color: #EA40A4;
+  background-color: #7eea40;
 }
 
-.todo-item .actions .delete {
-  background-color: #ff5b57;
+.input-field .actions .delete {
+  background-color: #f34946;
 }
 
-.todo-item.done .todo-content input {
+.input-field.done .todo-content input {
   text-decoration: line-through;
   color: #888;
+}
+
+.todo-item .dataTime{
+  display: flex;
+  justify-content: space-evenly;
+  justify-items: center;
 }
 
 footer {
   bottom: 0;
   display: flex;
-  background-color: #fff;
+  background-color: rgb(184, 211, 236);
   color: black;
   width: 100%;
   padding: 20px;
