@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
 	const username = localStorage.getItem('username') || '';
 	nameInput.value = username;
 
-  var dateValue, timeValue, todaysDate;
+  let dateValue, timeValue, todaysDate, currentDate, sortDate;
 
 	nameInput.addEventListener('change', (e) => {
 		localStorage.setItem('username', e.target.value);
@@ -45,16 +45,22 @@ window.addEventListener('load', () => {
     }
 
     if(!dateInput.value){
-      let currentDate = new Date();
-      dateValue = `${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDay()}`
-      console.log(dateValue);
+      currentDate = new Date();
+      if(currentDate.getMonth >9){
+        dateValue = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getUTCDate()}`;
+        sortDate = currentDate;
+      }else{
+        dateValue = `${currentDate.getFullYear()}-0${currentDate.getMonth()+1}-${currentDate.getUTCDate()}`;
+        sortDate = currentDate;
+      }
     }else{
       dateValue = dateInput.value;
+      sortDate = new Date(dateValue);
       dateInput.value="";
     }
 
     if(!timeInput.value){
-      let currentDate = new Date()
+      currentDate = new Date()
       timeValue = `${currentDate.getHours()}:${currentDate.getMinutes()}`
       console.log(timeValue);
     }else{
@@ -69,7 +75,7 @@ window.addEventListener('load', () => {
       date: dateValue,
       time: timeValue,
 			createdAt: new Date().getTime(),
-      sortItems:sortItems
+      taskDate: sortDate
 		}
 
 		todos.push(todo);
@@ -82,6 +88,15 @@ window.addEventListener('load', () => {
 		DisplayTodos()
 	})
 
+  sortItems.addEventListener("click",(e)=>{
+    todos = todos.sort((a, b) => {
+      return new Date(a.taskDate) - new Date(b.taskDate);
+    });
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+     DisplayTodos()
+  } );
+  
 	DisplayTodos()
 })
 
@@ -176,17 +191,5 @@ function DisplayTodos () {
 			localStorage.setItem('todos', JSON.stringify(todos));
 			DisplayTodos()
 		})
-
-    // sortButton.addEventListener("click",(e)=>{
-    //   todos = todos.sort((a, b) => {
-    //     let aDate = Date.parse(a.todo.date);
-    //     let bDate = Date.parse(b.todo.date);
-    //     return aDate - bDate;
-    //   });
-    //   localStorage.setItem('todos', JSON.stringify(todos));
-
-    //   DisplayTodos()
-    // } );
-
 	})
 }
