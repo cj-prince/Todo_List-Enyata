@@ -17,19 +17,15 @@ window.addEventListener('load', () => {
 	})
 
   dateInput.addEventListener('click', ()=>{
-    let todayDate = new Date()
-    if(todayDate.getMonth >9){
-      todaysDate = `${todayDate.getFullYear()}-${todayDate.getMonth()+1}-${todayDate.getUTCDate()}`;
-    }else{
-      todaysDate = `${todayDate.getFullYear()}-0${todayDate.getMonth()+1}-${todayDate.getUTCDate()}`;
-    }
-    document.getElementById("dateInput").min=todaysDate;
+    dateTimeValidator()
+  })
+
+  dateInput.addEventListener('change', ()=>{
+    dateTimeValidator()
   })
 
   timeInput.addEventListener('click', ()=>{
-    let todayDate = new Date()
-    todaysTime = `${todayDate.getHours()}:${todayDate.getMinutes()}`;
-    document.getElementById("timeInput").min=todaysTime;
+    dateTimeValidator()
   })
 
 	newTodoForm.addEventListener('submit', e => {
@@ -99,6 +95,31 @@ window.addEventListener('load', () => {
   
 	DisplayTodos()
 })
+
+function dateTimeValidator(){
+  let todayDate = new Date()
+  if(todayDate.getMonth >9){
+    todaysDate = `${todayDate.getFullYear()}-${todayDate.getMonth()+1}-${todayDate.getUTCDate()}`;
+  }else{
+    todaysDate = `${todayDate.getFullYear()}-0${todayDate.getMonth()+1}-${todayDate.getUTCDate()}`;
+  }
+  document.getElementById("dateInput").min=todaysDate;
+
+  console.log(todaysDate, dateInput.value)
+
+  console.log(dateInput.value == '' , dateInput.value == todaysDate);
+
+
+    if(dateInput.value == '' || dateInput.value == todaysDate){
+      todaysTime = `${todayDate.getHours()}:${todayDate.getMinutes()}`;
+      document.getElementById("timeInput").min=todaysTime;
+      console.log('idk today', todaysTime)
+    }else{
+      todaysTime =""
+      console.log('idk else', todaysTime)
+      document.getElementById("timeInput").min=todaysTime;
+    }    
+}
 
 function DisplayTodos () {
 	const todoList = document.querySelector('#todo-list');
