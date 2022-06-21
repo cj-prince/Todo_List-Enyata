@@ -2,7 +2,7 @@ Enyata BootCamp
 
 Group 5 Todo_List
 
-Key concepts covered
+
  WHY A TO DO LIST?
 •	Acknowledge the tasks
 •	Helps you prioritize
@@ -18,5 +18,6 @@ This app was created using the following tools with basic elements and attribute
 3.	JAVASCRIPT
 4.Event listeners
 5.DOM manipulation
+
 FIRST STEP
-The first step is to download the Omega App
+The first step is to download the Omega App and Display on browser.
