@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
 	todos = JSON.parse(localStorage.getItem('todos')) || [];
-  todone = JSON.parse(localStorage.getItem('todone')) || [];
+  todone = JSON.parse(localStorage.getItem('todone')) || []; 
 	const nameInput = document.querySelector('#name');
 	const newTodoForm = document.querySelector('#new-todo-form');
   const dateInput = document.querySelector('#dateInput');
