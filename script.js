@@ -181,16 +181,30 @@ function DisplayTodos () {
 		})
 
 		editButton.addEventListener('click', (e) => {
+<<<<<<< HEAD
 			const input = content.querySelector('input');
 			input.removeAttribute('readonly');
 			input.focus();
 			input.addEventListener('blur', (e) => {
+=======
+      const input = content.querySelector('input');
+      if(editButton.innerText.toLowerCase() == 'edit'){
+        input.removeAttribute('readonly');
+        input.focus();
+        editButton.innerText = 'Save';
+      }else{
+        editButton.innerText = "Edit";
+>>>>>>> main
 				input.setAttribute('readonly', true);
-				todo.content = e.target.value;
+				todo.content = input.value;
 				localStorage.setItem('todos', JSON.stringify(todos));
 				DisplayTodos()
+<<<<<<< HEAD
 
 			})
+=======
+      }
+>>>>>>> main
 		})
 
 		deleteButton.addEventListener('click', (e) => {
