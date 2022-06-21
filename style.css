@@ -16,9 +16,8 @@ button {
 }
 
 body {
-  background-image: url("todo.jpeg"),url("todos.jpeg");
-  background-position: right bottom, left top;
-  background-repeat: repeat, no-repeat;
+  background-image: url("todo.jpeg");
+  background-repeat: repeat, repeat;
   background-size: cover;
 }
 
@@ -91,7 +90,7 @@ h4 {
   font-weight: 700;
 }
 ::placeholder {
-  color: rgb(102, 99, 99);
+  color: rgb(88, 77, 77);
 }
 
 .create-todo input[type="text"] {
